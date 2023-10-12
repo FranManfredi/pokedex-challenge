@@ -12,22 +12,6 @@ code {
     monospace;
 }
 
-.card{
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-
-}
-
-.card-header {
-  top: 50%;
-  display: flex;
-  justify-content: center;
-  width: 75%;
-  height: 75%;
-}
-
 .atropos{
   position: absolute;
   width: 100%;
@@ -39,11 +23,4 @@ code {
   filter: blur(10px) !important;
   transform: translate3d(0px, 0px, -3px) scale(0.9) !important ;
 
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 columns with equal width */
-  gap: 16px; /* Adjust the gap as needed */
-  justify-content: center; /* Center align the grid horizontally */
 }
