@@ -1,5 +1,15 @@
+h3{
+    position: absolute;
+    text-align: center;
+    top: -54%;
+    width: 100%;
+    color: rgb(0, 0, 0);
+}
+
 .pokemon-type{
     width: 45%; 
     height: 28%; 
-    border-Radius: 15px
+    border-Radius: 15px;
+    text-align: center;
+    text-justify: distribute;
 }
