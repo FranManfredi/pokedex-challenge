@@ -7,7 +7,7 @@ export default function App () {
     <div id="app">
       <div className="container">
         <div style={{display: 'flex', flexWrap: 'wrap', gap: 5, height: 0, width: '100%'}}>
-          <PokeCard pokemon = {pokemon} width={320} height={480}/>
+          <PokeCard pokemon = {pokemon} width={320} height={380}/>
         </div>
       </div>
     </div>

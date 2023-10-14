@@ -61,10 +61,18 @@
 
 .card-image{
     width: 90%; 
-    height: 35%;
+    height: 40%;
     object-Fit: contain; 
     position: absolute; 
-    top: 18% ;
+    top: 35% ;
     left: 5%;
     z-Index: 2
+}
+
+.card-number{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 13%;
+    z-index: 2;
 }
