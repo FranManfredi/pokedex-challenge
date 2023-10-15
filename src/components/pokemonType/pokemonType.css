@@ -1,7 +1,7 @@
 h3{
     position: absolute;
     text-align: center;
-    top: -85%;
+    top: -90%;
     width: 100%;
     color: rgb(0, 0, 0);
 }
@@ -10,6 +10,4 @@ h3{
     width: 45%; 
     height: 28%; 
     border-Radius: 15px;
-    text-align: center;
-    text-justify: distribute;
 }
