@@ -1,15 +1,23 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import { PokeCard } from './components/pokecard/pokecard';
+import { Pokemon, getPokemons } from './components/axios/getPokemons';
 
 export default function App () {
+  const [pokemons, setPokemon] = useState<Pokemon[]>([])
+  useEffect( () => {getPokemons().then(data => {setPokemon(data)})}, [])
   return (
     <div id="app">
       <div className="container">
-        <div style={{display: 'flex', flexWrap: 'wrap', gap: 5, height: 0, width: '100%'}}>
-          <PokeCard pokemonNum = {4} pokemonName={"Charizard"} pokemonTypes = {["fire"]} width={320} height={380}/>
-          <PokeCard pokemonNum = {5} pokemonName={"Charmileon"} pokemonTypes = {["fire"]} width={320} height={380}/>
-          <PokeCard pokemonNum = {6} pokemonName={"Charizard"} pokemonTypes = {["fire"]} width={320} height={380}/>
-          <PokeCard pokemonNum = {460} pokemonName={"Abomasnow"} pokemonTypes = {["grass", "ice"]} width={320} height={380}/>
+        <div className='pokemon-deck'>
+          {pokemons.map(pokemon => 
+          <PokeCard 
+            key = {pokemon.pokemonNum} 
+            pokemonNum = {pokemon.pokemonNum} 
+            pokemonName={pokemon.pokemonName} 
+            pokemonTypes = {pokemon.pokemonTypes} 
+            width={320} height={380}/>
+          )}
         </div>
       </div>
     </div>

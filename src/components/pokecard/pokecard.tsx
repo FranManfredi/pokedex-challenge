@@ -6,7 +6,13 @@ import {PokemonType} from '../pokemonType/pokemonType';
 import { CardBackground } from '../cardBackground/cardBackground';
 
 function PokeCard({width, height, pokemonNum, pokemonName, pokemonTypes} :any){
-    const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonNum}.gif`;
+  var url = ""
+    
+  if (pokemonNum > 649){
+    url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonNum}.png`
+  }
+  else url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonNum}.gif`;
+  
     return ( 
     <div className="card" style={{width, height}}>
       <div className="card-header" >
