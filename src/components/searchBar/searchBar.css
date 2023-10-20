@@ -1,0 +1,19 @@
+.search-bar-container{
+    display: flex;
+    height: 200px; 
+    width: 70%;
+    background-color: #373232;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+  
+.search-icon {
+    cursor: pointer; /* Make the icon clickable */
+    font-size: 20px; /* Adjust the size as needed */
+    margin-left: 10px; /* Add spacing between the input and the icon */
+    color: #555; /* Adjust the color as needed */
+}
+
+.search-icon:hover {
+    color: #000; /* Change color on hover for user feedback */
+}

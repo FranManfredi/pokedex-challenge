@@ -50,6 +50,10 @@ function PokemonType(props: PokemonTypeProps) {
                     : type === "fairy"
                     ? "linear-gradient(45deg, #ff5fa9 0%, #ff5fa9 50%, #ff99ff 50%, #ff99ff 100%)"
                     : "white",
+                border:
+                    type === "normal" 
+                    ? "0.5px solid grey"
+                    : ""
               }}
               data-atropos-offset="2">
                 <h3 style={{

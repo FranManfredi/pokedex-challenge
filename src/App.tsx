@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { PokeCard } from './components/pokecard/pokecard';
 import { Pokemon, getPokemons } from './components/axios/getPokemons';
+import pokeTitle from './assets/international_pokemon_logo.png'
+import { SearchBar } from './components/searchBar/searchBar';
 
 export default function App () {
   const [pokemons, setPokemon] = useState<Pokemon[]>([])
@@ -9,6 +11,8 @@ export default function App () {
   return (
     <div id="app">
       <div className="container">
+        <img className='title-img' src={pokeTitle} alt={'title'}/>
+        <SearchBar/>
         <div className='pokemon-deck'>
           {pokemons.map(pokemon => 
           <PokeCard 

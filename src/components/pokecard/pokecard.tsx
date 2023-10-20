@@ -14,7 +14,7 @@ function PokeCard({width, height, pokemonNum, pokemonName, pokemonTypes} :any){
   else url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonNum}.gif`;
   
     return ( 
-    <div className="card" style={{width, height}}>
+    <div className="card" style={{width, height, minHeight: height, minWidth: width}}>
       <div className="card-header" >
         <Atropos>
           <CardBackground type={pokemonTypes[0]}/>
