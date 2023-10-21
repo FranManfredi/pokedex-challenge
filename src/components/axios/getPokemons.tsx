@@ -5,11 +5,12 @@ export interface Pokemon {
     pokemonName : string
     pokemonTypes : string[]
 } 
-    
-    
+
+let offset = 0;
 
 async function getPokemons(){
-    const pokemons = await axios.get("https://pokeapi.co/api/v2/pokemon/")
+    const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=20`;
+    const pokemons = await axios.get(url)
     const pokemones = await Promise.all(
         pokemons.data.results.map( async (data: { url: string; name : string;})  => {
         const pokeInfo : { data : {id : number; types : [type : [name : string]]} } = await axios.get(data.url)
@@ -22,6 +23,7 @@ async function getPokemons(){
             }
         )
     })) 
+    offset += 20
     return pokemones
 }
 
