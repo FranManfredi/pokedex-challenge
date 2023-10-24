@@ -2,7 +2,7 @@ h3{
     text-align: center;
     justify-self: flex-start;
     position: relative;
-    top: -100%;
+    top: -80%;
     width: 100%;
     color: rgb(0, 0, 0);
 }
@@ -12,6 +12,6 @@ h3{
     justify-content: first baseline;
     align-items: first baseline;
     width: 43%; 
-    height: 28%; 
+    height: 40%; 
     border-Radius: 15px;
 }

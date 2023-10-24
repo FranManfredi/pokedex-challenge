@@ -6,7 +6,7 @@ interface PokemonTypeProps {
 
 function PokemonType(props: PokemonTypeProps) {
     return (
-        <div style={{display: 'flex', flexWrap: 'wrap', gap: "10%", zIndex: 3,position: 'absolute', top: "80%",left: "10%", width: "80%", height: "30%"}} data-atropos-offset="2" >
+        <div style={{display: 'flex', flexWrap: 'wrap', gap: "10%", zIndex: 3, width: "80%", height: "100%", marginTop: "5%"}} data-atropos-offset="2" >
           {props.types.map((type, index) => (
             <div
               key={index}

@@ -14,7 +14,7 @@ function PokeCard({ width, height, pokemonNum, pokemonName, pokemonTypes }: any)
   }
 
   return (
-  <Link to={`/pokemon/${pokemonNum}`} style={{textDecoration: 'none', color: 'inherit'}}>
+  <Link to={`/${pokemonNum}`} style={{textDecoration: 'none', color: 'inherit'}}>
       <div className="card" style={{ width, height, minHeight: height, minWidth: width }}>
         <div className="card-header">
           <Atropos>
