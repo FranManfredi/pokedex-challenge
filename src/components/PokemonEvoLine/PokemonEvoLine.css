@@ -1,0 +1,27 @@
+
+
+.pokemonEvolLine{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: auto;
+}
+
+
+
+.evolLineevolLine{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+.evolArrow{
+    width: 10%;
+    height: 10%;
+}

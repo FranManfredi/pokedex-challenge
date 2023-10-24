@@ -1,0 +1,117 @@
+
+.up-right{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    width: 45%;
+    height: 50vh;
+    justify-content: center;
+}
+
+.types{
+    display: flex;
+    gap: 10px;
+}
+
+.text-types{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.pokemon-type{
+    width: 43%; 
+    height: 100%; 
+    border-Radius: 15px;
+}
+
+  .water {
+    background: linear-gradient(45deg, #ADD8E6 0%, #ADD8E6 50%, #009fd4 50%, #009fd4 100%);
+  }
+  
+  .fire {
+    background: linear-gradient(45deg, orange 0%, orange 50%, red 50%, red 100%);
+  }
+  
+  .grass {
+    background: linear-gradient(45deg, #5de56a 0%, #5de56a 50%, #41a94c 50%, #41a94c 100%);
+  }
+  
+  .electric {
+    background: linear-gradient(45deg, #f7df00 0%, #f7df00 50%, orange 50%, orange 100%);
+  }
+  
+  .ice {
+    background: linear-gradient(45deg, #b3ffff 0%, #b3ffff 50%, #00ffff 50%, #00ffff 100%);
+  }
+  
+  .bug {
+    background: linear-gradient(45deg, #bfff00 0%, #bfff00 50%, #a3c900 50%, #a3c900 100%);
+  }
+  
+  .normal {
+    background: linear-gradient(45deg, #ffffff 0%, #ffffff 50%, #c0c0c0 50%, #c0c0c0 100%);
+    border: 0.5px solid grey;
+  }
+  
+  .poison {
+    background: linear-gradient(45deg, #ff00ff 0%, #ff00ff 50%, #800080 50%, #800080 100%);
+  }
+  
+  .ground {
+    background: linear-gradient(45deg, #996600 0%, #996600 50%, #ffbf00 50%, #ffbf00 100%);
+  }
+  
+  .flying {
+    background: linear-gradient(45deg, silver 0%, silver 50%, #00ffff 50%, #00ffff 100%);
+  }
+  
+  .psychic {
+    background: linear-gradient(45deg, #ff00ff 0%, #ff00ff 50%, #f7a7f7 50%, #f7a7f7 100%);
+  }
+  
+  .fighting {
+    background: linear-gradient(45deg, #c8681a 0%, #c8681a 50%, #e2a16b 50%, #e2a16b 100%);
+  }
+  
+  .rock {
+    background: linear-gradient(45deg, #404040 0%, #404040 50%, #808080 50%, #808080 100%);
+  }
+  
+  .ghost {
+    background: linear-gradient(45deg, #800080 0%, #800080 50%, #630063 50%, #630063 100%);
+  }
+  
+  .dragon {
+    background: linear-gradient(45deg, #ff8f34 0%, #ff8f34 50%, #00eeff 50%, #00eeff 100%);
+  }
+  
+  .dark {
+    background: linear-gradient(45deg, #000000 0%, #000000 50%, #404040 50%, #404040 100%);
+  }
+  
+  .steel {
+    background: linear-gradient(45deg, #808080 0%, #808080 50%, #c0c0c0 50%, #c0c0c0 100%);
+  }
+  
+  .fairy {
+    background: linear-gradient(45deg, #ff5fa9 0%, #ff5fa9 50%, #ff99ff 50%, #ff99ff 100%);
+  }
+  
+  .typesTitle{
+    position: relative;
+    left: -10%;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  .weaknesTitle{
+    position: relative;
+    left: -10%;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    font-weight: bold;
+  }

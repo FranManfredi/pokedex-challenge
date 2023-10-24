@@ -10,7 +10,7 @@ function PokemonType(props: PokemonTypeProps) {
           {props.types.map((type, index) => (
             <div
               key={index}
-              className="pokemon-type"
+              className="pokemon-types"
               style={{
                 background:
                     type === "water"

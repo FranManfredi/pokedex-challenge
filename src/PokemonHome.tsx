@@ -5,7 +5,6 @@ import { Pokemon, getPokemons } from './components/axios/getPokemons';
 import pokeTitle from './assets/international_pokemon_logo.png'
 import { SearchBar } from './components/searchBar/searchBar';
 import LoadingScreen from './components/loadingScreen/LoadingScreen';
-import getAdvancedPokemon from './components/axios/getAdvacedPokemon';
 
 export default function PokemonHome() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);

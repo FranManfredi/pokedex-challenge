@@ -1,12 +1,16 @@
 h3{
-    position: relative;
     text-align: center;
-    top: -85%;
+    justify-self: flex-start;
+    position: relative;
+    top: -100%;
     width: 100%;
     color: rgb(0, 0, 0);
 }
 
-.pokemon-type{
+.pokemon-types{
+    display: flex;
+    justify-content: first baseline;
+    align-items: first baseline;
     width: 43%; 
     height: 28%; 
     border-Radius: 15px;
