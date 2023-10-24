@@ -8,7 +8,6 @@ export default function PokemonEvolLines(props: { pokemonEvolutionLine: any[][] 
     <div className="pokemonEvolLine">
       {props.pokemonEvolutionLine.map((evolLine, index) => {
         return (
-          <div className="mayorevolLine" key={index}>
             <div className="evolLine" key={index}>
               {evolLine.map((evol: { id: any; name: any; type: any; }) => {
                 return (
@@ -16,7 +15,6 @@ export default function PokemonEvolLines(props: { pokemonEvolutionLine: any[][] 
                 );
               })}
             </div>
-          </div>
         );
       })}
     </div>

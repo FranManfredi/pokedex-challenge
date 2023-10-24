@@ -1,6 +1,7 @@
 import Atropos from 'atropos/react';
 import './pokecard.css';
 import 'atropos/atropos.css';
+import { Link } from 'react-router-dom'; // Import Link
 import { PokemonType } from '../pokemonType/pokemonType';
 
 function PokeCard({ width, height, pokemonNum, pokemonName, pokemonTypes }: any) {
@@ -8,24 +9,28 @@ function PokeCard({ width, height, pokemonNum, pokemonName, pokemonTypes }: any)
 
   if (pokemonNum > 649) {
     url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonNum}.png`
+  } else {
+    url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonNum}.gif`;
   }
-  else url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${pokemonNum}.gif`;
 
   return (
-    <div className="card" style={{ width, height, minHeight: height, minWidth: width }}>
-      <div className="card-header" >
-        <Atropos>
-          <div className={`card-background card-background-${pokemonTypes[0]}`} data-atropos-offset="2" >
-            <div className='card-in-between' data-atropos-offset="2">
-              <h1 className='card-title' data-atropos-offset="1" >{pokemonName}</h1> {/* title */}
-              <h2 className='card-number' data-atropos-offset="1" >#{String(pokemonNum).padStart(4, '0')}</h2> {/* subtitle */}
-              <img className='card-image' src={url} data-atropos-offset="2" alt='pokemon' /> {/* image */}
-              <PokemonType types={pokemonTypes} /> {/* type */}
+  <Link to={`/pokemon/${pokemonNum}`} style={{textDecoration: 'none', color: 'inherit'}}>
+      <div className="card" style={{ width, height, minHeight: height, minWidth: width }}>
+        <div className="card-header">
+          <Atropos>
+            <div className={`card-background card-background-${pokemonTypes[0]}`} data-atropos-offset="2">
+              <div className='card-in-between' data-atropos-offset="2">
+                <h1 className='card-title' data-atropos-offset="1">{pokemonName}</h1>
+                <h2 className='card-number' data-atropos-offset="1">#{String(pokemonNum).padStart(4, '0')}</h2>
+                <img className='card-image' src={url} data-atropos-offset="2" alt='pokemon' />
+                <PokemonType types={pokemonTypes} />
+              </div>
             </div>
-          </div>
-        </Atropos>
+          </Atropos>
+        </div>
       </div>
-    </div>)
+    </Link>
+  );
 }
 
-export { PokeCard }
+export { PokeCard };
