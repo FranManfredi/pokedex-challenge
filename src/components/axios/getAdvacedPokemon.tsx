@@ -14,11 +14,15 @@ export interface PokemonEvolLine {
   type: string[];
 }
 
+export interface PokemonEvolLine {
+  id: number;
+  name: string;
+  type: string[];
+}
+
 interface PokemonSpeciesData {
-  data: {
-    evolution_chain: {
-      url: string;
-    };
+  evolution_chain: {
+    url: string;
   };
 }
 
@@ -27,8 +31,15 @@ interface EvolutionChain {
     species: {
       name: string;
     };
-    evolves_to: EvolutionChain[];
+    evolves_to: NextEvolutionChain[];
   };
+}
+
+interface NextEvolutionChain {
+  species: {
+    name: string;
+  };
+  evolves_to: NextEvolutionChain[];
 }
 
 const typeWeaknesses: Record<string, string[]> = {
@@ -67,14 +78,13 @@ const getWeaknessesOf = (types: string[]): string[] => {
   return weaknesses;
 };
 
-const traverseChain = (chain: EvolutionChain) => {
-  const evolutionLineNames: { name: string }[][] = [];
+const traverseChain = (chain: EvolutionChain, evolutionLineNames: { name: string }[][]) => {
   const stage: { name: string } = {
     name: chain.chain.species.name,
   };
   if (chain.chain.evolves_to.length > 0) {
     evolutionLineNames.push([stage]);
-    chain.chain.evolves_to.forEach((nextStage: EvolutionChain) => {
+    chain.chain.evolves_to.forEach((nextStage: NextEvolutionChain) => {
       traverseNextChain(nextStage, evolutionLineNames);
     });
   } else {
@@ -82,13 +92,13 @@ const traverseChain = (chain: EvolutionChain) => {
   }
 };
 
-const traverseNextChain = (nextStage: EvolutionChain, evolutionLineNames: { name: string }[][]) => {
+const traverseNextChain = (nextStage: NextEvolutionChain, evolutionLineNames: { name: string }[][]) => {
   const stage: { name: string } = {
-    name: nextStage.chain.species.name,
+    name: nextStage.species.name,
   };
-  if (nextStage.chain.evolves_to.length > 0) {
+  if (nextStage.evolves_to.length > 0) {
     evolutionLineNames.push([stage]);
-    nextStage.chain.evolves_to.forEach((nextStage: EvolutionChain) => {
+    nextStage.evolves_to.forEach((nextStage: NextEvolutionChain) => {
       traverseNextChain(nextStage, evolutionLineNames);
     });
   } else {
@@ -97,10 +107,10 @@ const traverseNextChain = (nextStage: EvolutionChain, evolutionLineNames: { name
 };
 
 const getEvolutionLine = async (pokemonSpeciesData: PokemonSpeciesData): Promise<PokemonEvolLine[][]> => {
-  const evolutionChainData = await axios.get<EvolutionChain>(pokemonSpeciesData.data.evolution_chain.url);
+  const evolutionChainData = await axios.get<EvolutionChain>(pokemonSpeciesData.evolution_chain.url);
   const evolutionLineNames: { name: string }[][] = [];
 
-  traverseChain(evolutionChainData.data);
+  traverseChain(evolutionChainData.data, evolutionLineNames);
 
   const pokemonEvoLinePromises = evolutionLineNames.map(async (array) => {
     return Promise.all(
