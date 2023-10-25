@@ -2,7 +2,6 @@
 import "./PokemonTypesAndWeaknes.css"
 
 const PokemonTypesAndWeaknes = ({ types, pokeWeaknes }: { types: string[], pokeWeaknes: string[] }) => {
-    console.log(pokeWeaknes);
     return (
       <div className="up-right">
         <div className="typesTitle">Types</div>

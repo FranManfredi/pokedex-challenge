@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'; // Import Link
 import { PokemonType } from '../pokemonType/pokemonType';
 import { usePokemonImage } from '../axios/getPokemonImage';
 
-export const PokeCard = ({ width, height, pokemonNum, pokemonName, pokemonTypes }: any) => {
+export const PokeCard = ({ width, height, pokemonNum, pokemonName, pokemonTypes }: {width: number, height: number, pokemonNum: number, pokemonName: string,  pokemonTypes: string[]}) => {
   const imageUrl = usePokemonImage(pokemonNum);
   return (
     <Link to={`/${pokemonNum}`} style={{ textDecoration: 'none', color: 'inherit' }}>
