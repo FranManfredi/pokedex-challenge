@@ -6,7 +6,7 @@ import pokeTitle from './assets/international_pokemon_logo.png'
 import { SearchBar } from './components/searchBar/searchBar';
 import LoadingScreen from './components/loadingScreen/LoadingScreen';
 
-export default function PokemonHome() {
+const PokemonHome = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -33,7 +33,7 @@ export default function PokemonHome() {
       });
     }
   }, [isLoading]);
-  
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -44,22 +44,23 @@ export default function PokemonHome() {
       <div className="container">
         <img className="title-img" src={pokeTitle} alt="title" />
         <SearchBar />
-        {isLoading === true ? <LoadingScreen/> : ""}
-    
-          <div className="pokemon-deck">
-            {pokemons.map((pokemon) => (
-              <PokeCard
-                key={pokemon.pokemonNum}
-                pokemonNum={pokemon.pokemonNum}
-                pokemonName={pokemon.pokemonName}
-                pokemonTypes={pokemon.pokemonTypes}
-                width={320}
-                height={380}
-              />
-            ))}
-          </div>
-        
+        {isLoading === true ? <LoadingScreen /> : ""}
+
+        <div className="pokemon-deck">
+          {pokemons.map((pokemon) => (
+            <PokeCard
+              key={pokemon.pokemonNum}
+              pokemonNum={pokemon.pokemonNum}
+              pokemonName={pokemon.pokemonName}
+              pokemonTypes={pokemon.pokemonTypes}
+              width={320}
+              height={380}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default PokemonHome;

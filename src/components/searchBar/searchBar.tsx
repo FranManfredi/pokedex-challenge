@@ -3,7 +3,7 @@ import searchBarIcon from '../../assets/input-search-bg.png';
 import { SetStateAction, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function SearchBar() {
+const SearchBar = () => {
   const [searchValue, setSearchValue] = useState('');
   const navigate = useNavigate();
 

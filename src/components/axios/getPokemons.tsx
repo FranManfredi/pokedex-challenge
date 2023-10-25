@@ -8,7 +8,7 @@ export interface Pokemon {
 
 let offset = 0;
 
-async function getPokemons(){
+const getPokemons = async () =>{
     const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=20`;
     const pokemons = await axios.get(url)
     const pokemones = await Promise.all(
@@ -27,4 +27,4 @@ async function getPokemons(){
     return pokemones
 }
 
-export {getPokemons}
+export { getPokemons }
