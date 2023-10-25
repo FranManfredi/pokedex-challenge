@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import PokemonEvoLines from "../components/PokemonEvoLine/PokemonEvoLine";
 import PokemonTypesAndWeaknes from "../components/PokemonTypesAndWeaknes/PokemonTypesAndWeaknes";
 import { AdvancePokemon, getAdvancedPokemon } from "../components/axios/getAdvacedPokemon";
-import { getPokemonImage } from "../components/axios/getPokemonImage";
+import { usePokemonImage } from "../components/axios/getPokemonImage";
 import LoadingScreen from "../components/loadingScreen/LoadingScreen";
 import './PokemonPage.css';
 
@@ -19,6 +19,8 @@ const PokemonPage = () => {
       setIsLoading(false);
     });
   }, [id]);
+
+  const imageUrl = usePokemonImage(pokeNum);
 
   if (isLoading) {
     return <LoadingScreen />;
@@ -37,7 +39,7 @@ const PokemonPage = () => {
             <div className="pokeNum">
               #{String(pokemon?.pokemonNum).padStart(4, '0')}
             </div>
-            <img className="pokemon-image" src={getPokemonImage(pokeNum)} alt="pokemon" />
+            <img className="pokemon-image" src={imageUrl} alt="pokemon" />
           </div>
           <PokemonTypesAndWeaknes types={pokemon?.pokemonTypes ?? []} pokeWeaknes={pokemon?.pokemonWeaknes ?? []} />
         </div>
