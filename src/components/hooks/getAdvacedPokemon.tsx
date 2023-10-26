@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 export interface AdvancePokemon {
   pokemonNum: number;
@@ -133,25 +134,47 @@ const getEvolutionLine = async (pokemonSpeciesData: PokemonSpeciesData): Promise
   return pokemonEvoLine;
 };
 
-const getAdvancedPokemon = async (id: string): Promise<AdvancePokemon> => {
-  const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-  const pokemon = await axios.get<any>(url);
+const useGetAdvancedPokemon = (id: string) => {
+  const [pokemon, setPokemon] = useState<AdvancePokemon | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const pokemonNum: number = pokemon.data.id;
-  const pokemonName: string = pokemon.data.name;
-  const pokemonTypes: string[] = pokemon.data.types.map((typeData: any) => typeData.type.name);
-  const pokemonWeaknes: string[] = getWeaknessesOf(pokemonTypes);
-  const pokemonEvolutionLine: PokemonEvolLine[][] = await getEvolutionLine(
-    (await axios.get<PokemonSpeciesData>(pokemon.data.species.url)).data
-  );
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+        const response = await axios.get<any>(url);
+        const pokemonData = response.data;
+        
+        const pokemonNum: number = pokemonData.id;
+        const pokemonName: string = pokemonData.name;
+        const pokemonTypes: string[] = pokemonData.types.map((typeData: any) => typeData.type.name);
+        
+        const pokemonSpeciesUrl = pokemonData.species.url;
+        const speciesResponse = await axios.get<PokemonSpeciesData>(pokemonSpeciesUrl);
+        const pokemonWeaknesses: string[] = getWeaknessesOf(pokemonTypes);
+        
+        const pokemonEvolutionLine: PokemonEvolLine[][] = await getEvolutionLine(speciesResponse.data);
 
-  return {
-    pokemonNum,
-    pokemonName,
-    pokemonTypes,
-    pokemonWeaknes,
-    pokemonEvolutionLine,
-  };
+        const advancedPokemon: AdvancePokemon = {
+          pokemonNum,
+          pokemonName,
+          pokemonTypes,
+          pokemonWeaknes: pokemonWeaknesses,
+          pokemonEvolutionLine,
+        };
+
+        setPokemon(advancedPokemon);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching advanced Pokémon:', error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [id]);
+
+  return { pokemon, isLoading };
 };
 
-export { getAdvancedPokemon };
+export { useGetAdvancedPokemon };

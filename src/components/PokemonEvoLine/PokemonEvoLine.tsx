@@ -1,4 +1,4 @@
-import { PokemonEvolLine } from "../axios/getAdvacedPokemon";
+import { PokemonEvolLine } from "../hooks/getAdvacedPokemon";
 import { PokeCard } from "../pokecard/pokecard";
 import './PokemonEvoLine.css'
   

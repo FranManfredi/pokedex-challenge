@@ -3,7 +3,7 @@ import './pokecard.css';
 import 'atropos/atropos.css';
 import { Link } from 'react-router-dom'; // Import Link
 import { PokemonType } from '../pokemonType/pokemonType';
-import { usePokemonImage } from '../axios/getPokemonImage';
+import { usePokemonImage } from '../hooks/usePokemonImage';
 
 export const PokeCard = ({ width, height, pokemonNum, pokemonName, pokemonTypes }: {width: number, height: number, pokemonNum: number, pokemonName: string,  pokemonTypes: string[]}) => {
   const imageUrl = usePokemonImage(pokemonNum);
